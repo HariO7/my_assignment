@@ -1,4 +1,4 @@
-const data = [1,4,0,0,6,0,4,6,9]
+const data = [0,4,0,0,0,6,0,6,4,0]; 
 
 function createTable(tableData) {
   const table = document.createElement("table");
@@ -7,7 +7,7 @@ function createTable(tableData) {
   tableData.forEach(function (rowData) {
     const row = document.createElement("tr");
     rowData.forEach(function () {
-      const cell = document.createElement("td");
+      const cell = document.createElement("td") ;
       cell.appendChild(document.createTextNode(""));
       row.appendChild(cell);
     });
@@ -18,53 +18,39 @@ function createTable(tableData) {
   table.appendChild(tableBody);
   document.body.appendChild(table);
 }
-let tableData = []
+let tableData = [];
 
-for(let i=0;i<10;i++){
-   tableData[i] = []
-   for(let j=0;j<10;j++){
-      const data = ['']
-      tableData[i][j]= data;
-   }
+for (let i = 0; i < 10; i++) {
+  tableData[i] = [];
+  for (let j = 0; j < 10; j++) {
+    const data = [""];
+    tableData[i][j] = data;
+  }
 }
 
 createTable(tableData);
-const allTr = document.querySelectorAll('tr')
+const allTr = document.querySelectorAll("tr");
 
-function waterTank(data){
-   for(let i=0;i<2;i++){
-      let count = data[i]
-      // const allTd = document.querySelectorAll('td')
-      console.log(count);
-
-      // for(let j=0;j<1;j++){
-      //    let td = allTr[i].childNodes
-      //    console.log(td[j]);
-      // }
-
-
-      allTr.forEach((e,i)=>{
-         let tr = e.childNodes
-            console.log(tr);
-            for(let j=0;j<count;j++){
-               if(j<count){
-                  tr[j].className = "waterfill"
-               }
-               
-            }
-            // tr.forEach((q,j)=>{
-            //    if(j<=count){
-            //       console.log(q[j]);
-            //       q[j].classList.add('waterfill') 
-            //    }
-            // })
-      })
-      // allTd.forEach((e,i)=>{
-      //    if(i<=19){
-      //       return  e.classList.add('waterfill')
-      //    }
-      // })
+function waterTank(data) {
+//   for (let i = 0; i < 1; i++) {
+    
+    for (let k = 0; k < data.length; k++) {
+      let count = data[k];
+      let tr = allTr[k].childNodes;
+      console.log(tr)
+      // console.log(k);
+      if(count != 0){
+         for (let j = 0; j < count; j++) {
+            tr[j].className = "waterfill";
+        }
+      } else {
+         for (let j = 0; j < data[k-1]; j++) {
+            tr[j].className = "waterfall";
+        }
+      }
+     
    }
+//   }
 }
 
-waterTank(data)
+waterTank(data);
