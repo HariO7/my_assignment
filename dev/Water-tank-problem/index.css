@@ -11,6 +11,6 @@ td{
   border: 1px solid black;
 }
 
-td:active{
-  background-color: black;
+.waterfill{
+  background-color: yellow;
 }
