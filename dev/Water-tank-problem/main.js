@@ -32,25 +32,22 @@ createTable(tableData);
 const allTr = document.querySelectorAll("tr");
 
 function waterTank(data) {
-//   for (let i = 0; i < 1; i++) {
-    
+   let value = 0
     for (let k = 0; k < data.length; k++) {
       let count = data[k];
       let tr = allTr[k].childNodes;
-      console.log(tr)
-      // console.log(k);
       if(count != 0){
+         value = count
          for (let j = 0; j < count; j++) {
             tr[j].className = "waterfill";
         }
       } else {
-         for (let j = 0; j < data[k-1]; j++) {
+         for (let j = 0; j < value; j++) {
             tr[j].className = "waterfall";
         }
       }
      
    }
-//   }
 }
 
 waterTank(data);
