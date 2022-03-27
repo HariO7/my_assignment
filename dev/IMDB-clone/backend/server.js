@@ -2,8 +2,19 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const app = express()
+const connectDB = require('./database/config/connection')
 
-app.listen(3000,()=>{
-    console.log('listening in port 3000')
-})
+
+const app = express()
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
+require('dotenv').config()
+connectDB()
+
+
+const port = process.env.port || 3001
+
+
+
+app.listen(3000,()=> console.log(`listening on port: ${port}`))
