@@ -1,5 +1,4 @@
-const express = require("express");
-const router = express.Router();
+const router = require('express').Router();
 const Actor = require('../database/models/actor.model')
 
 
@@ -25,8 +24,26 @@ router.post('/add',(req,res)=>{
     newActor.save()
     .then(()=> res.json('Actor added'))
     .catch(err => res.status(400).json(err))
+})
 
+router.post('/:id',(req,res)=>{
+    Actor.findByIdAndUpdate(req.params.id)
+        .then(Actors => {
+            Actors.username = req.body.username;
+            Actors.description = req.body.description;
+            Actors.duration = req.body.duration;
 
+            Actors.save()
+                .then(() => res.json('updated Actor'))
+                .catch(err => res.status(400).json(err)) 
+        })
+        .catch(err => res.status(400).json(err))
+})
+
+router.delete('/:id',(req,res)=>{
+    Actor.findByIdAndDelete(req.params.id)
+        .then(()=> res.json('Actor deleted'))
+        .catch(err => res.status(400).json(err))
 })
 
 module.exports = router
