@@ -21,9 +21,11 @@ router.post('/add',(req,res)=>{
         DOB,
         Bio
     })
-
+    console.log(newActor);
     newActor.save()
     .then(()=> res.json('Actor added'))
     .catch(err => res.status(400).json(err))
 
 })
+
+module.exports = router

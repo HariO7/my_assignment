@@ -14,7 +14,8 @@ connectDB()
 
 
 const port = process.env.port || 3001
+const actorRouter = require('./routes/actor.route')
 
+app.use('/actor',actorRouter)
 
-
-app.listen(3000,()=> console.log(`listening on port: ${port}`))
+app.listen(port,()=> console.log(`listening on port: ${port}`))
