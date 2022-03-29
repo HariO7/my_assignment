@@ -18,24 +18,7 @@ export default class CreateActor extends Component {
       Name: '',
       Gender: '',
       DOB: new Date(),
-      actors: []
     }
-  }
-
-  componentDidMount(){
-    axios
-      .get('http://localhost:3001/actor/add')
-      .then(res => {
-        if(res.data.length > 0){
-          this.setState({
-            users: res.data.map(user => user.Name),
-            Name: res.data[0].Name
-          })
-        }
-      })
-      .catch((error)=>{
-        console.log(error);
-      })
   }
 
   onChangeName(e){
@@ -68,7 +51,7 @@ export default class CreateActor extends Component {
     const Actor = {
       Name: this.state.Name,
       Gender: this.state.Gender,
-      Bio: this.state.duration,
+      Bio: this.state.Bio,
       date: this.state.date
     }
     console.log(Actor);

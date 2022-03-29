@@ -26,6 +26,7 @@ router.post('/add',(req,res)=>{
     .then(()=> res.json('Actor added'))
     .catch(err => res.status(400).json(err))
 
+
 })
 
 module.exports = router
