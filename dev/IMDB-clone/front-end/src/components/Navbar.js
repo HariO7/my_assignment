@@ -30,12 +30,12 @@ function Navbar() {
             </Link>
           </li>
           <li className="navbar-item">
-            <Link to="/Actor/add" className="nav-link">
+            <Link to="/Producer" className="nav-link">
               Producers
             </Link>
           </li>
           <li className="navbar-item">
-            <Link to="/Actor/add" className="nav-link">
+            <Link to="/Producer/add" className="nav-link">
               Add Producers
             </Link>
           </li>

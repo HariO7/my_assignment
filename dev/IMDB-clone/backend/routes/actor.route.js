@@ -29,9 +29,10 @@ router.post('/add',(req,res)=>{
 router.post('/:id',(req,res)=>{
     Actor.findByIdAndUpdate(req.params.id)
         .then(Actors => {
-            Actors.username = req.body.username;
-            Actors.description = req.body.description;
-            Actors.duration = req.body.duration;
+            Actors.Name = req.body.Name;
+            Actors.Bio = req.body.Bio;
+            Actors.DOB = req.body.DOB;
+            Actors.Gender = req.body.Gender;
 
             Actors.save()
                 .then(() => res.json('updated Actor'))

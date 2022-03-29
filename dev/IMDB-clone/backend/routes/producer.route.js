@@ -29,9 +29,10 @@ router.post('/add',(req,res)=>{
 router.post('/:id',(req,res)=>{
     Producer.findByIdAndUpdate(req.params.id)
         .then(Producers => {
-            Producers.username = req.body.username;
-            Producers.description = req.body.description;
-            Producers.duration = req.body.duration;
+            Producers.Name = req.body.Name;
+            Producers.Bio = req.body.Bio;
+            Producers.DOB = req.body.DOB;
+            Producers.Gender = req.body.Gender;
 
             Producers.save()
                 .then(() => res.json('updated Producer'))

@@ -29,9 +29,10 @@ router.post('/add',(req,res)=>{
 router.post('/:id',(req,res)=>{
     Movie.findByIdAndUpdate(req.params.id)
         .then(Movies => {
-            Movies.username = req.body.username;
-            Movies.description = req.body.description;
-            Movies.duration = req.body.duration;
+            Movies.Name = req.body.Name;
+            Movies.Bio = req.body.Bio;
+            Movies.Release = req.body.Release;
+            Movies.Poster = req.body.Poster;
 
             Movies.save()
                 .then(() => res.json('updated Movie'))
