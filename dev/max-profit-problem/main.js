@@ -7,7 +7,25 @@ let T = 0;
 let P = 0;
 let C = 0;
 
-function theatre(tu, earning) {
+const maxProfit = (tu,earning)=>{
+
+  const t = theatre(tu,earning)
+  if(t>0){
+    console.log(`T:${t} P:${0} C:${0}`);
+  }
+  const p = pub(tu,earning)
+  if(p>0){
+    console.log(`T:${0} P:${p} C:${0}`);
+
+  }
+  const c = community(tu,earning)
+  if(c>0){
+    console.log(`T:${0} P:${0} C:${c}`);
+  }
+}
+
+
+const theatre =(tu, earning) => {
     T =0
     let div = Math.floor(tu/5)
   let totalE = 0;
@@ -33,7 +51,7 @@ function theatre(tu, earning) {
 }
 
 
-function pub(tu, earning) {
+const pub = (tu, earning) => {
     P =0
     let div = Math.floor(tu/4)
   let totalE = 0;
@@ -59,7 +77,7 @@ function pub(tu, earning) {
 }
 
 
-function community(tu, earning) {
+const community = (tu, earning) =>{
     C =0
     let div = Math.floor(tu/10)
   let totalE = 0;
